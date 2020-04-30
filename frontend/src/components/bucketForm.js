@@ -27,11 +27,11 @@ const AddBucket = () => {
     return(
         <form onSubmit = {addBucket}>
             <div className="form-group">
-                <label for="bucketName">Bucket Name</label>
+                <label>Bucket Name</label>
                 <input type="text" className="form-control" value={bucketName} onChange = {updateName} name= "bucketName" placeholder="Bucket Name" />
             </div>
             <div className="form-group">
-                <label for="done">Done</label>
+                <label>Done</label>
                 <input type="text" className="form-control" value={done} onChange = {updateDone} placeholder="done" />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>

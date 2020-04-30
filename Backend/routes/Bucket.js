@@ -28,25 +28,34 @@ router.get('/reg', async (req, res)=>{
     const buckets = await Bucket.find();
     console.log(buckets);
     res.json(buckets);
+});
+
+router.get('/', async (req, res) => {
+    try {
+        const buckets = await Bucket.find();
+        return res.status(200).json(buckets);
+    } catch(error) {
+        console.log(error);
+    }
 })
 
 //Router to get all bucket
-router.get('/', async (req, res) => {
-    //Get all bucket from database
-    try {
-        const buckets = await Bucket.find();   
-        const bucketList = buckets.map((bucket) =>{
-        return {
-            id: bucket._id,
-            bucketName: bucket.bucketname,
-            date: bucket.date
-        }
-    })
-        return res.status(200).json(bucketList);
-    } catch (error) {
-        console.log(error);
-    }
-});
+// router.get('/', async (req, res) => {
+//     //Get all bucket from database
+//     try {
+//         const buckets = await Bucket.find();   
+//         const bucketList = buckets.map((bucket) =>{
+//         return {
+//             id: bucket._id,
+//             bucketName: bucket.bucketname,
+//             date: bucket.date
+//         }
+//     })
+//         return res.status(200).json(bucketList);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
 //Router to get a single bucket
 router.get('/:id', async (req, res) => {
